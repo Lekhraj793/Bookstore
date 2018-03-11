@@ -14,7 +14,44 @@
                         </div>
                     @endif
 
-                    you are admin;
+                    <div class="container">
+
+                			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+                            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+                    		<div class="container-fluid">
+
+                 					          <header>
+                                      	<h1>Welcome to admin panel</h1>
+                                    </header>
+
+                      <table class="table table-striped table-dark table table-bordered">
+                        <thead style="font-size: 20px; font-family: -webkit-pictograph;">
+                          <tr>
+                            <th>Book No:</th>
+                            <th>Book Name:</th>
+                            <th>Special Price:</th>
+                            <th>Quantity:</th>
+                            <th>Create Date:</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+<!-- <?php //dd($profile); ?> -->
+                          @foreach ($profile as $save)
+
+                              <tr style="font-size: 15px;">
+                                  <td>{{$save['id']}}</td>
+                                  <td>{{$save['name']}}</td>
+                                  <td>{{$save['special_price']}}</td>
+                                  <td>{{$save['quantity']}}</td>
+                                  <td>{{$save['created_at']}}</td>
+                              </tr>
+                          @endforeach
+                        </tbody>
+
+                     </table>
+
+                  </div>
 
                 </div>
             </div>

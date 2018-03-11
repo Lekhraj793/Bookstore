@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Book;
+use App\Models\Order;
 
 class User extends Authenticatable
 {
@@ -26,4 +28,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function Book()
+    {
+        return $this->hasOne(Book::class);
+    }
+
+    public function Order()
+    {
+        return $this->hasOne(Order::class);
+    }
 }

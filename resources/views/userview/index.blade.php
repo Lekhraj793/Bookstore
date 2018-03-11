@@ -14,7 +14,7 @@
             					<a href="/cart/{{$book['id']}}"><label style="float: left;">{{$book->name}}<label></a><br>
             					<div id="price" style="margin-left: 38px; margin-top: -22px; float: left;
             						"><h4>Price: <s>{{$book->price}}</h4></div><br>
-            					<div style="text-decoration: line-through; margin-left: -75px; float: left; margin-top: 5px;">
+            					<div style="margin-left: 200px;; float: left; margin-top: 5px;">
                         <span class="price-before-discount">Rs.{{$book->special_price}}</span>
             					</div>
 

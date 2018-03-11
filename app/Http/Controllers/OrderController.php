@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Libraries\orderLibrary;
 use Illuminate\Http\Request;
 use App\Models\Book;
+
+use Illuminate\Support\Facades\Auth;
 use App\User;
 
 class OrderController extends Controller
@@ -29,15 +31,21 @@ class OrderController extends Controller
 
     public function show(Request $request)
     {
+        $saved= Auth::user()->id;
         $data= Book::find($request->id);
-        return view('books/cart', compact('data'));
+        return view('userview/cart', compact('data','saved'));
     }
 
     public function store(Request $request)
     {
-        if (Auth::guard('user')->check())
-        {
-           echo "Logged in via manager guard";
-        }
+        $int= new OrderLibrary();
+        $save=$int->add($request);
+        dd($save);die;
+        return redirect('/home');
+    }
+
+    public function profile()
+    {
+
     }
 }

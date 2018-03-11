@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('book_id')->unsigned();
             $table->integer('quantity');
-            $table->integer('price');
+            $table->integer('special_price');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')
