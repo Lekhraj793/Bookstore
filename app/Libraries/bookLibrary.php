@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 
 class BookLibrary
 {
+  // This function use for insert data
     public function add(Request $request)
     {
         $int= Book::create(request()->all());
@@ -19,6 +20,7 @@ class BookLibrary
         }
     }
 
+    // This function show all data on dashboard
     public function all()
     {
       return Book::all()->toArray();

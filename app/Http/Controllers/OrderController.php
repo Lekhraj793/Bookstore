@@ -19,6 +19,7 @@ class OrderController extends Controller
                 return redirect('/cart');
 
             }
+            
     }
 
 // This function Show Index page for user. Show All Items on homepage.
@@ -34,9 +35,17 @@ class OrderController extends Controller
         }
     }
 
-//show after login data with user_id for buying
+
     public function show(Request $request)
     {
+      // try{                               this code data are work but non-object property error given
+      //   $data= new OrderLibrary();
+      //   $saved=$data->show($request);
+      //   return view('userview/cart', compact('saved'));
+      // }
+      // catch(\Exception $e){
+      //     Log::info("Data not found". $e->getMessage());
+      // }
         $saved= Auth::user()->id;
         $data= Book::find($request->id);
         return view('userview/cart', compact('data','saved'));

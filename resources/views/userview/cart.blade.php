@@ -1,13 +1,14 @@
 @extends('layouts.app')
 @section('content')
-    <!-- <?php  //dd($saved); ?> -->
 
-    <label style="float: left;">{{$data->name}}<label><br>
-    <div id="price" style="margin-left: 38px; margin-top: -22px; float: left;
-      "><h4>Price: <s>{{$data->price}}</h4></div><br>
-    <div style=" margin-left: -75px; float: left; margin-top: 5px;">
-      <span class="price-before-discount">Rs.{{$data->special_price}}</span>
-    </div>
+      <!-- <?php  //dd($saved); ?> -->
+      <label style="float: left;">{{$data->name}}<label><br>
+      <div id="price" style="margin-left: 38px; margin-top: -22px; float: left;
+        "><h4>Price: <s>{{$data->price}}</h4></div><br>
+      <div style=" margin-left: -75px; float: left; margin-top: 5px;">
+        <span class="price-before-discount">Rs.{{$data->special_price}}</span>
+      </div>
+
 
     <form action="/store" method="post">
         {{ csrf_field() }}

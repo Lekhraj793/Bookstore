@@ -15,11 +15,11 @@ class OrderLibrary
         return Book::all();
     }
 
-    public function show(Request $request, User $user)
+    public function show(Request $request)
     {
-    	  $arr[]=array(array($saved= Auth::user()->id),
-                 array($data= Book::find($request->id)));
-       		 return $arr;
+      // $arr[]=array(array($saved= Auth::user()->id),
+      //         array($data= Book::find($request->id)));
+      //   return $arr;
     }
 
     public function add(Request $request)
@@ -28,6 +28,7 @@ class OrderLibrary
            return $int;
        }
 
+// this function view data
        public function profile($user_id)
        {
             $saved= Order::select('*')->where('user_id', '=', Auth::id())->get();

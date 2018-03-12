@@ -24,10 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-      $data= new OrderLibrary();
-      $profile= $data->profile('id');
-     //dd($profile);die;
-      return view('/home', compact('profile'));
+        $data= new OrderLibrary();
+        $profile= $data->profile('id');
+       //dd($profile);die;
+        return view('/home', compact('profile'));
     }
 }
