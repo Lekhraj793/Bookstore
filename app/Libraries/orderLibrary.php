@@ -17,16 +17,12 @@ class OrderLibrary
 
     public function show(Request $request, User $user)
     {
-        $show= Book::find($request->id);
-        $user= User::find($user->id);
-        return $show;
-        return $user;
+      
     }
 
     public function add(Request $request)
        {
            $int= Order::create(request()->all());
-
            return $int;
        }
 

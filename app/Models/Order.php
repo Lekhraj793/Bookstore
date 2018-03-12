@@ -10,7 +10,7 @@ class Order extends Model
 {
     protected $fillable=['user_id','book_id','quantity','special_price'];
 
-    public function product()
+    public function book()
     {
         return $this->belongsTo(Book::class);
 

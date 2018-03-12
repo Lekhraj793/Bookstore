@@ -2,7 +2,7 @@
 @section('content')
 <?php// dd($find);?>
 <div class="container">
-    <form method="post" action="/update" enctype="multipart/form-data">
+    <form method="post" action="/books/update" enctype="multipart/form-data">
         {{csrf_field()}}
 
         <div class="form-group">

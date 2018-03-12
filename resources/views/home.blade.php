@@ -41,7 +41,7 @@
 
                               <tr style="font-size: 15px;">
                                   <td>{{$save['id']}}</td>
-                                  <td>{{$save['name']}}</td>
+                                  <td>{{$save['book']['name']}}</td>
                                   <td>{{$save['special_price']}}</td>
                                   <td>{{$save['quantity']}}</td>
                                   <td>{{$save['created_at']}}</td>

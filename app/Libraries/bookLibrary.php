@@ -4,13 +4,19 @@ namespace App\Libraries;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use Illuminate\Support\Facades\Log;
 
 class BookLibrary
 {
     public function add(Request $request)
     {
         $int= Book::create(request()->all());
-        return $int;
+        if(empty($int)){
+          return $int;
+        }
+        else {
+            echo "Data Not Insert";
+        }
     }
 
     public function all()
@@ -21,28 +27,49 @@ class BookLibrary
     public function edit(Request $request)
     {
         $show= Book::find($request->id);
-        return $show;
+        if (!empty($show)) {
+            return $show;
+        }
+        else{
+            echo "Data Not Found";
+        }
     }
 
     public function change(Request $request)
     {
-        $book=Book::find(request('id'));
+        $book=Book::find($request->id);
+        $book->name=request('name');
+        $book->description=request('description');
+        $book->price=request('price');
+        $book->special_price=request('special_price');
+        $book->quantity=request('quantity');
         dd($book);die;
-        $book->fill($request->all())->save();
+        if (!empty($update)) {
+            return $update->save();
+        }
+        else {
+            echo "Data Not Update";
+        }
 
-        return $book;
+
 
     }
 
     public function delete(Request $request)
     {
         $del=Book::destroy($request->id);
-        return $del;
+        if (!empty($del)) {
+          return $del;
+        }
+        else {
+            echo "Data not delete";
+        }
+
     }
 
 
     public function updateQuantity()
     {
-        
+
     }
 }

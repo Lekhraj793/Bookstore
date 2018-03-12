@@ -13,7 +13,7 @@
         {{ csrf_field() }}
         <input type="hidden" value="{{$saved}}" name="user_id">
         <input type="hidden" value="{{$data->id}}" name="book_id"/>
-        <input type="hidden" value="{{$data->book()->name}}" name="name"/>
+        <input type="hidden" value="{{$data->name}}" name="name"/>
         <input type="hidden" value="{{$data->special_price}}" name="special_price"/>
         <input type="hidden" value="1" name="quantity"/>
         <input type="submit" value="Buy" class="btn btn-primary" name="submit"/>
