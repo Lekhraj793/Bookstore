@@ -9,14 +9,15 @@ use Illuminate\Support\Facades\Log;
 class BookLibrary
 {
   // This function use for insert data
-    public function add(Request $request)
+    public function insert(Request $request)
     {
         $int= Book::create(request()->all());
         if(empty($int)){
           return $int;
         }
         else {
-            echo "Data Not Insert";
+            throw new \Exception("Data Not Insert");
+
         }
     }
 

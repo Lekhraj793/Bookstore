@@ -17,14 +17,15 @@ class OrderLibrary
 
     public function show(Request $request)
     {
-      // $arr[]=array(array($saved= Auth::user()->id),
-      //         array($data= Book::find($request->id)));
-      //   return $arr;
+      $arr[]=array(array($saved= Auth::user()->id),
+              array($data= Book::find($request->id)));
+        return $arr;
     }
 
     public function add(Request $request)
        {
            $int= Order::create(request()->all());
+           //$order->$ser=Book::all()->decrement('quantity',$ser->quantity);
            return $int;
        }
 

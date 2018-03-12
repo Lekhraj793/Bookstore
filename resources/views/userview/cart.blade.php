@@ -2,21 +2,30 @@
 @section('content')
 
       <!-- <?php  //dd($saved); ?> -->
-      <label style="float: left;">{{$data->name}}<label><br>
-      <div id="price" style="margin-left: 38px; margin-top: -22px; float: left;
-        "><h4>Price: <s>{{$data->price}}</h4></div><br>
-      <div style=" margin-left: -75px; float: left; margin-top: 5px;">
-        <span class="price-before-discount">Rs.{{$data->special_price}}</span>
-      </div>
 
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    		<div class="container-fluid">
 
     <form action="/store" method="post">
-        {{ csrf_field() }}
-        <input type="hidden" value="{{$saved}}" name="user_id">
-        <input type="hidden" value="{{$data->id}}" name="book_id"/>
-        <input type="hidden" value="{{$data->name}}" name="name"/>
-        <input type="hidden" value="{{$data->special_price}}" name="special_price"/>
-        <input type="hidden" value="1" name="quantity"/>
-        <input type="submit" value="Buy" class="btn btn-primary" name="submit"/>
+      <table class="table table-striped table-dark table table-bordered">
+        <tbody>
+          <tr style="font-size: 15px;">
+              {{ csrf_field() }}
+              <input type="hidden" value="{{$saved}}" name="user_id">
+              <input type="hidden" value="{{$data->id}}" name="book_id"/>
+              <input type="text" value="{{$data->name}}" name="name"/>
+              <input type="text" value="{{$data->special_price}}" name="special_price"/>
+              <select name="quantity">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+              </select>
+              <input type="submit" value="Buy" class="btn btn-primary" name="submit"/>
+            </tr>
+          </tbody>
+        </table>
     </form>
 @endsection

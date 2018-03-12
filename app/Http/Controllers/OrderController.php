@@ -19,7 +19,7 @@ class OrderController extends Controller
                 return redirect('/cart');
 
             }
-            
+
     }
 
 // This function Show Index page for user. Show All Items on homepage.
@@ -31,20 +31,22 @@ class OrderController extends Controller
           return view('userview/index', compact('books'));
         }
         catch(\Exception $e){
-            Log::info("Cart is Empty". $e->getMessage());
+            Log::info($e->getMessage());
+            return false;
         }
     }
 
 
     public function show(Request $request)
     {
-      // try{                               this code data are work but non-object property error given
+      // try{                               //this code data are work but non-object property error given
       //   $data= new OrderLibrary();
       //   $saved=$data->show($request);
       //   return view('userview/cart', compact('saved'));
       // }
       // catch(\Exception $e){
-      //     Log::info("Data not found". $e->getMessage());
+      //     Log::info( $e->getMessage());
+      //     return false;
       // }
         $saved= Auth::user()->id;
         $data= Book::find($request->id);
@@ -61,7 +63,8 @@ class OrderController extends Controller
           return redirect('/home');
         }
         catch(\Exception $e){
-            Log::info("Data Not Buy".$e->getMessage());
+            Log::info($e->getMessage());
+            return false;
         }
     }
 }

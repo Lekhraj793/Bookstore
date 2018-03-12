@@ -15,7 +15,6 @@ class BookController extends Controller
 
     public function __construct(User $user)
     {
-
         $this->middleware('auth')->except('show');
           $this->middleware(function ($request, $next) {
               $this->user=Auth::user();
@@ -40,13 +39,13 @@ class BookController extends Controller
         try
         {
             $data=new BookLibrary();
-            $set=$data->add($request);
-              //dd($set);die;
+            $set=$data->insert($request);
             return redirect('/dashboard');
         }
         catch (\Exception $e)
         {
-            Log::info("Data Not Insert");
+            Log::info($e->getMessage());
+            return false;
         }
     }
 
@@ -61,7 +60,8 @@ class BookController extends Controller
         }
         catch(\Exception $e)
         {
-            Log::info("Store is Empty".$e->getMessage());
+            Log::info($e->getMessage());
+            return false;
         }
     }
 
@@ -75,7 +75,8 @@ class BookController extends Controller
         }
         catch(\Exception $e)
         {
-            Log::info("Data Not Found".$e->getMessage());
+            Log::info($e->getMessage());
+            return false;
         }
     }
 
@@ -93,7 +94,8 @@ class BookController extends Controller
         }
         catch(\Exception $e)
         {
-            Log::info("Something wrong".$e->getMessage());
+           Log::info($e->getMessage());
+            return false;
         }
     }
 
@@ -107,7 +109,8 @@ class BookController extends Controller
         }
         catch(\Exception $e)
         {
-            Log::info('Data Not Delete'.$e->getMessage());
+            Log::info($e->getMessage());
+            return false;
         }
     }
 }
