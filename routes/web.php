@@ -5,7 +5,7 @@ Route::get('/dashboard','BookController@index');
 Route::get('books/create','BookController@create');
 Route::post('/dashboard', 'BookController@store');
 Route::get('/edit/{id}','BookController@show');
-Route::post('/books/update', 'BookController@update');
+Route::post('/update/{id}', 'BookController@update');
 Route::get('/delete/{id}','BookController@remove');
 
 Route::get('/','OrderController@index');

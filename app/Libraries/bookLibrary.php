@@ -37,21 +37,16 @@ class BookLibrary
 
     public function change(Request $request)
     {
-        $book=Book::find($request->id);
-        $book->name=request('name');
-        $book->description=request('description');
-        $book->price=request('price');
-        $book->special_price=request('special_price');
-        $book->quantity=request('quantity');
-        dd($book);die;
-        if (!empty($update)) {
-            return $update->save();
-        }
-        else {
-            echo "Data Not Update";
-        }
-
-
+        $book= Book::find(request('id'));
+        $book->name = request('name');
+        $book->description = request('description');
+        $book->price = request('price');
+        $book->special_price = request('special_price');
+        $book->quantity = request('quantity');
+        $book->admin_id = request('admin_id');
+        $book->save();
+        //dd($book);die;
+         return $book;
 
     }
 

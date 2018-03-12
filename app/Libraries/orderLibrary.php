@@ -17,7 +17,7 @@ class OrderLibrary
 
     public function show(Request $request, User $user)
     {
-      
+
     }
 
     public function add(Request $request)

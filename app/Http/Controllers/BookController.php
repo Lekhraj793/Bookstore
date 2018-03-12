@@ -12,23 +12,18 @@ use Illuminate\Support\Facades\Log;
 class BookController extends Controller
 {
 
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
     public function __construct(Book $book)
     {
+      
         $this->middleware('auth')->except('show');
-        $this->middleware(function ($request, $next) {
-            $this->user=Auth::user();
-
-            if(isset($this->user) and $this->user->is_admin==0 and Route::current()->uri!="/show/{id}")
-            {
-                return redirect('/');
-
-            }
-            return $next($request);
-        });
+          $this->middleware(function ($request, $next) {
+              $this->user=Auth::user();
+              if(isset($this->user) and $this->user->is_admin==0 and Route::current()->uri!="/show/{id}")
+              {
+                  return redirect('/');
+              }
+              return $next($request);
+          });
 
     }
 
@@ -87,16 +82,17 @@ class BookController extends Controller
     public function update(Request $request)
     {
         try{
-            $book=new BookLibrary();
+            $book= new BookLibrary();
+            //dd($book);die;
             $data=$book->change($request);
-            dd($data);die;
+            //dd($data);die;
             if($data){
                 return redirect('/dashboard');
           }
         }
         catch(\Exception $e)
         {
-            Log::info("Some thing wrong".$e->getMessage());
+            Log::info("Something wrong".$e->getMessage());
         }
     }
 

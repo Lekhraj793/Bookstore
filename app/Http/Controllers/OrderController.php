@@ -19,7 +19,6 @@ class OrderController extends Controller
                 return redirect('/cart');
 
             }
-            //return $next($request);
     }
 
 // This function Show Index page for user. Show All Items on homepage.
