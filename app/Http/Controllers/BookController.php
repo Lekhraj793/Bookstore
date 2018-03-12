@@ -44,8 +44,8 @@ class BookController extends Controller
         }
         catch (\Exception $e)
         {
-            Log::info($e->getMessage());
-            return false;
+            //Log::info($e->getMessage());
+            return $e->getMessage();
         }
     }
 
@@ -60,8 +60,8 @@ class BookController extends Controller
         }
         catch(\Exception $e)
         {
-            Log::info($e->getMessage());
-            return false;
+          //  Log::info($e->getMessage());
+            return $e->getMessage();
         }
     }
 
@@ -75,8 +75,8 @@ class BookController extends Controller
         }
         catch(\Exception $e)
         {
-            Log::info($e->getMessage());
-            return false;
+          //  Log::info($e->getMessage());
+            return $e->getMessage();
         }
     }
 

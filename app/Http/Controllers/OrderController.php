@@ -31,8 +31,8 @@ class OrderController extends Controller
           return view('userview/index', compact('books'));
         }
         catch(\Exception $e){
-            Log::info($e->getMessage());
-            return false;
+            //Log::info($e->getMessage());
+            return $e->getMessage();
         }
     }
 
@@ -63,8 +63,8 @@ class OrderController extends Controller
           return redirect('/home');
         }
         catch(\Exception $e){
-            Log::info($e->getMessage());
-            return false;
+          //  Log::info($e->getMessage());
+            return $e->getMessage();
         }
     }
 }
