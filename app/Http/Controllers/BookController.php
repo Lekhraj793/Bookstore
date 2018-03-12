@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Libraries\bookLibrary;
 use App\Models\Book;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Log;
 class BookController extends Controller
 {
 
-    public function __construct(Book $book)
+    public function __construct(User $user)
     {
 
         $this->middleware('auth')->except('show');
