@@ -40,7 +40,7 @@ class OrderController extends Controller
     {
         $int= new OrderLibrary();
         $save=$int->add($request);
-        dd($save);die;
+        //dd($save);die;
         return redirect('/home');
     }
 

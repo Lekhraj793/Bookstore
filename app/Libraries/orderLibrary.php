@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Order;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class OrderLibrary
 {
@@ -25,13 +26,14 @@ class OrderLibrary
     public function add(Request $request)
        {
            $int= Order::create(request()->all());
-        
+
            return $int;
        }
 
-       public function profile()
+       public function profile($user_id)
        {
-            $saved= Order::all();
+            $saved= Order::select('*')->where('user_id', '=', Auth::id())->get();
+           //dd($saved);die;
             return $saved;
        }
 }

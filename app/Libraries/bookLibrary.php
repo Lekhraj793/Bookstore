@@ -39,4 +39,10 @@ class BookLibrary
         $del=Book::destroy($request->id);
         return $del;
     }
+
+
+    public function updateQuantity()
+    {
+        
+    }
 }

@@ -21,7 +21,7 @@
                     		<div class="container-fluid">
 
                  					          <header>
-                                      	<h1>Welcome to admin panel</h1>
+                                      	<h1>Welcome to profile</h1>
                                     </header>
 
                       <table class="table table-striped table-dark table table-bordered">
