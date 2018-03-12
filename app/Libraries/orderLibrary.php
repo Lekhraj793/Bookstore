@@ -17,7 +17,9 @@ class OrderLibrary
 
     public function show(Request $request, User $user)
     {
-
+    	  $arr[]=array(array($saved= Auth::user()->id),
+                 array($data= Book::find($request->id)));
+       		 return $arr;
     }
 
     public function add(Request $request)

@@ -34,7 +34,7 @@ class OrderController extends Controller
         }
     }
 
-
+//show after login data with user_id for buying
     public function show(Request $request)
     {
         $saved= Auth::user()->id;
