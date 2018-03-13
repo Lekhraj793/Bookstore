@@ -24,8 +24,9 @@ class OrderLibrary
 
     public function add(Request $request)
        {
-           $int= Order::create(request()->all());
-           //$order->$ser=Book::all()->decrement('quantity',$ser->quantity);
+          $int= Order::insert(['user_id' => $request->user_id, 'book_id'=> $request->book_id,
+                  'quantity'=>$request->quantity, 'special_price'=>$request->quantity*$request->special_price]);
+                  //->decrement('quantity'=>$request->quantity);
            return $int;
        }
 

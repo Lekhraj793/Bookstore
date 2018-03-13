@@ -12,7 +12,7 @@ class BookLibrary
     public function insert(Request $request)
     {
         $int= Book::create(request()->all());
-        if(empty($int)){
+        if(!empty($int)){
           return $int;
         }
         else {
@@ -68,6 +68,7 @@ class BookLibrary
 
     public function updateQuantity()
     {
-
+      $updateQuantity= Book::where('id'=>$request->id)->update('quantity' => request(quantity - orders.quantity));
+//      UPDATE books SET quantity = (quantity - 1) WHERE (ID = 1)
     }
 }
