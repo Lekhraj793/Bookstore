@@ -1,0 +1,10 @@
+admin:-
+1. admin can do any thing like- create, update, delete.
+2. admin show books on table.
+
+User:-
+1. show all book on front page or table.
+2. user search book by book name.
+3. create cart page.
+4. user can buy book.
+5. user see all purchased book in table with price and date.
